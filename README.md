@@ -1,20 +1,20 @@
 # SQLi-Detection-Benchmark
 Benchmarks ML and DL models for SQL injection (SQLi) detection on both imbalanced and balanced datasets. Uses consistent preprocessing and evaluation metrics to identify the most effective models and data balancing techniques.
 
-## 🧩 Problem Statement
+## Problem Statement
 
 SQL Injection (SQLi) is one of the most common and dangerous web vulnerabilities.  
 Attackers can inject malicious SQL code into input fields to steal or manipulate data.  
 Detecting these attacks automatically is a challenge, especially because:
 
 - Attackers use tricks like encoding or hidden syntax.
-- Real datasets are **imbalanced** — many safe queries, few attacks.
+- Real datasets are **imbalanced** : many safe queries, few attacks.
 
 This project compares various ML and DL models to see which works best for this detection task.
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
 - Build a full **benchmarking pipeline** for SQLi detection.
 - Test multiple ML and DL models under identical conditions.
@@ -27,7 +27,7 @@ This project compares various ML and DL models to see which works best for this 
 
 ---
 
-## 🧠 Models Evaluated
+## Models Evaluated
 
 ### 🔹 Machine Learning Models
 - Logistic Regression  
@@ -47,7 +47,7 @@ This project compares various ML and DL models to see which works best for this 
 
 ---
 
-## 🗃️ Dataset
+## Dataset
 
 - **Source:** Kaggle Public Dataset – *SQL Injection Dataset*  
 - **Total Samples:** 30,919  
@@ -62,7 +62,7 @@ After preprocessing, three versions of the dataset were used:
 
 ---
 
-## ⚙️ Methodology
+## Methodology
 
 1. **Load and Split Data** – 80% training, 20% testing  
 2. **Text Preprocessing** – lowercase, clean spacing  
@@ -74,7 +74,7 @@ After preprocessing, three versions of the dataset were used:
 
 ---
 
-## 📊 Results Summary
+## Results Summary
 
 | Model | Dataset | Accuracy | F1-Score | Key Notes |
 |--------|----------|----------|-----------|-----------|
@@ -86,7 +86,7 @@ After preprocessing, three versions of the dataset were used:
 | MLP | ROS | 99.55% | 99.55% | Performs very well with ROS |
 | MobileBERT | Original | 99.31% | 99.31% | Highly stable across datasets |
 
-### 🧩 Ensemble Results
+### Ensemble Results
 
 | Dataset | Voting Type | Accuracy | PR-AUC |
 |----------|--------------|----------|--------|
@@ -99,12 +99,11 @@ After preprocessing, three versions of the dataset were used:
 
 ---
 
-## 📈 Key Findings
+## Key Findings
 
 - Random Forest performed the best individually.  
 - Oversampling (ROS) improved almost every model.  
 - KNN did not perform well due to high-dimensional sparse vectors.  
-- Ensemble models (especially weighted soft voting) slightly improved results and gave the most **stable and reliable** detection.
 
 ---
 
@@ -123,61 +122,6 @@ After preprocessing, three versions of the dataset were used:
 - **Libraries:**  
   - `scikit-learn`, `numpy`, `pandas`, `matplotlib`  
   - `transformers` (for MobileBERT)  
-
----
-
-## 📂 Repository Structure
-
-```
-
-SQLi-Detection-Benchmark/
-│
-├── data/
-│   ├── SQLi_Original_Raw.csv
-│   ├── SQLi_RUS_Raw.csv
-│   ├── SQLi_ROS_Raw.csv
-│
-├── notebooks/
-│   ├── 1_Data_Preprocessing.ipynb
-│   ├── 2_Model_Training.ipynb
-│   ├── 3_Ensemble_Evaluation.ipynb
-│
-├── src/
-│   ├── models.py
-│   ├── train.py
-│   ├── ensemble.py
-│
-├── results/
-│   ├── performance_charts/
-│   ├── confusion_matrices/
-│
-├── README.md
-└── requirements.txt
-
-````
-
----
-
-## ⚡ How to Run
-
-```bash
-# 1️⃣ Clone the repository
-git clone https://github.com/yourusername/SQLi-Detection-Benchmark.git
-cd SQLi-Detection-Benchmark
-
-# 2️⃣ Install dependencies
-pip install -r requirements.txt
-
-# 3️⃣ Run the ensemble evaluation
-python src/ensemble.py
-````
-
----
-
-## 📜 License
-
-This project is developed for educational and research purposes under the supervision of **Dharmsinh Desai University**.
-You are free to reuse or modify it for academic learning with proper credit.
 
 ---
 
